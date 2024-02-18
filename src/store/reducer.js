@@ -1,46 +1,23 @@
-import { createStore } from "redux";
+import { createStore } from 'redux';
+import {ADD_LOGIN_DETAILS} from './../store/AddLoginDetails'
 
 const initialState = {
-    users: [],
-    loggedinuser: null,
-    products :
-    [
+    usersDetails: [
         {
-            id: 1,
-            name: 'pen',
-            price:3,
-            
-        },
-        {
-            id: 2,
-            name: 'pencil',
-            price:2,
-            
-        },
-       
-        {
-            id: 3,
-            name: 'eraser',
-            price:5,
-            
-        },
-       
-       
+            username: "basanta",
+            password: "password"
+        }
     ],
-    cart:[]
 }
-
-const reducer = (state =initialState,action) => {
-    switch(action.type){
-        case 'REGISTER' :
-            return{
+const loginPage = (state = initialState, action) => {
+    switch (action.type) {
+        case ADD_LOGIN_DETAILS:
+            return {
                 ...state,
-                users: [...state.users, action.payload]
+                userDetails: action.data
             }
-   
-
         default:
             return state;
     }
 }
-export default createStore(reducer)
+export default createStore(loginPage)

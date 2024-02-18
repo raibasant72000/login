@@ -1,18 +1,20 @@
-import './App.css';
 import { useSelector } from 'react-redux';
+import './App.css';
+import { Login } from './components/Login';
+
 
 function App() {
-  const products = useSelector(state => state.products)  
+  const userLogin = useSelector( state=> state.userDatails)
   return (
     <div className="App">
       {
-        products.map(product =>
-          <div key={product.id}>
-            {product.name }
-            {product.price}
-            </div>
-            )
+        userLogin.map(user=> <div>
+          {user.name}
+          {user.password}
+           </div>)
       }
+      <Login/>
+  
       
     </div>
   );
